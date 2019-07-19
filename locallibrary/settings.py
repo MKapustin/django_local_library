@@ -25,7 +25,8 @@ import os
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '(a84ru4n2wcf-=q@el!u)1+(-o4ajl^wh6-+lzk+ki#0(zgwbv')
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
-DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
+#DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
+DEBUG = False
 
 ALLOWED_HOSTS = ['guarded-ravine-72781.herokuapp.com']
 
