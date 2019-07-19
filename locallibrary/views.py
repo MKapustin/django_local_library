@@ -1,12 +1,13 @@
 from django.views.generic.edit import FormView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group, User
+import os
 
 class RegisterFormView(FormView):
     form_class = UserCreationForm
 
     success_url = "/accounts/login/"
-    template_name = "registration\\register.html"
+    template_name = os.path.join("registration", "register.html")
 
     def form_valid(self, form):
         form.save()
