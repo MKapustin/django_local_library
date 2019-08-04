@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group, User
 import os
 
+
 class RegisterFormView(FormView):
     form_class = UserCreationForm
 
@@ -11,7 +12,8 @@ class RegisterFormView(FormView):
 
     def form_valid(self, form):
         form.save()
-        my_group = Group.objects.get(name='Library Members') 
-        my_group.user_set.add(User.objects.filter(username__exact = form.cleaned_data.get('username')).first())
+        my_group = Group.objects.get(name='Library Members')
+        my_group.user_set.add(User.objects.filter(
+            username__exact=form.cleaned_data.get('username')).first())
 
         return super(RegisterFormView, self).form_valid(form)
